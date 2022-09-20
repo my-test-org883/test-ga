@@ -9,3 +9,5 @@ runs:
         python-version: 3.9
     - run: python ${{ github.action_path }}/process.py
       shell: bash
+    - run: ls -l
+      shell: bash

@@ -1,0 +1,11 @@
+name: "Boost Security Scanner"
+description: "Scans a repository for security vulneratibilities"
+
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+    - run: python ${{ github.action_path }}/process.py
+      shell: bash

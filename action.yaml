@@ -1,5 +1,5 @@
-name: "Boost Security Scanner"
-description: "Scans a repository for security vulneratibilities"
+name: "Test Action"
+description: "test action"
 
 runs:
   using: "composite"

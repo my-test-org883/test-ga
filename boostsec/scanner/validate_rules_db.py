@@ -123,9 +123,9 @@ def validate_rules(rules_db: Dict[str, Any]) -> None:
     _log_info("Rules are valid!")
 
 
-def main(rule_db_path: str) -> None:
+def main(rules_db_path: str) -> None:
     """Main function."""
-    rule_db = load_yaml_file(rule_db_path)
+    rule_db = load_yaml_file(rules_db_path)
     validate_rules(rule_db)
 
 

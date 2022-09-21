@@ -1,13 +1,27 @@
 name: "Test Action"
 description: "test action"
-
+inputs:
+  rules_db_path:
+    description: "Path to the rules database"
+    required: false
+    default: "boostsec/rules_database/rule_db.yaml"
+  modules_path:
+    description: "Path to the modules directory"
+    required: false
+    default: "scanners/"
 runs:
   using: "composite"
   steps:
     - uses: actions/setup-python@v2
       with:
         python-version: 3.9
-    - run: python ${{ github.action_path }}/process.py
+    - name: Validate rules database
+      run: |
+        python ${{ github.action_path }}/scanner/validate_rules_db.py \
+          --rules-db-path ${{ inputs.rules_db_path }}
       shell: bash
-    - run: cat boostsec/rules_database/rule_db.yaml
+    - name: Validate namespaces
+      run: |
+        python ${{ github.action_path }}/scanner/validate_namespaces.py \
+          --modules-path ${{ inputs.modules_path }}
       shell: bash

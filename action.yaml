@@ -17,11 +17,11 @@ runs:
         python-version: 3.9
     - name: Validate rules database
       run: |
-        python ${{ github.action_path }}/scanner/validate_rules_db.py \
+        python ${{ github.action_path }}/boostsec/scanner/validate_rules_db.py \
           --rules-db-path ${{ inputs.rules_db_path }}
       shell: bash
     - name: Validate namespaces
       run: |
-        python ${{ github.action_path }}/scanner/validate_namespaces.py \
+        python ${{ github.action_path }}/boostsec/scanner/validate_namespaces.py \
           --modules-path ${{ inputs.modules_path }}
       shell: bash

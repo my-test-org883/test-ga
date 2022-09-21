@@ -123,9 +123,9 @@ def validate_rules(rules_db: Dict[str, Any]) -> None:
     _log_info("Rules are valid!")
 
 
-def main(rule_db_location: str) -> None:
+def main(rule_db_path: str) -> None:
     """Main function."""
-    rule_db = load_yaml_file(rule_db_location)
+    rule_db = load_yaml_file(rule_db_path)
     validate_rules(rule_db)
 
 
@@ -133,8 +133,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process a rule database.")
     parser.add_argument(
         "-r",
-        "--rule-db-location",
-        help="The location of the rule database.",
+        "--rules-db-path",
+        help="The path of the rule database.",
     )
     args = parser.parse_args()
     main(**vars(args))
